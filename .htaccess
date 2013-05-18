@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /Documentation
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php?file=$1 [L]
+SetEnv url http://projects.local/Documentation/
