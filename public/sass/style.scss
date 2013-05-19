@@ -258,3 +258,13 @@ li { list-style: none; }
         }
     }   
 }
+
+@media screen and (max-width: 500px) {
+    .button {
+        .icon, .icon-github {
+            + .text {
+                display: none;
+            }
+        }
+    }
+}
