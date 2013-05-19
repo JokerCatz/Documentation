@@ -131,10 +131,17 @@ li { list-style: none; }
     a {
         padding: 10px 15px;
         display: block;
+        font-weight: bold;
 
         &:hover {
-            background: #ddd;
+            background: white;
         }
+    }
+
+    li { background: #ddd; }
+
+    li:nth-child(2n-1) {
+        background: #eee;
     }
 }
 

@@ -57,7 +57,7 @@
             if ($error) $body = '<h1>Uh, oh</h1><p>Sorry, the documentation you were looking for could not be found.</p>';
             
             if (isset($page_tree)) {
-                echo '<ul class="page_tree">' . build(url($route), $page_tree) . '</ul>';
+                echo '<div class="doc"><h1>Contents</h1></div><ul class="page_tree">' . build(url($route), $page_tree) . '</ul>';
             } else {
                 echo '<div class="doc">' . $body . '</div>';
             }

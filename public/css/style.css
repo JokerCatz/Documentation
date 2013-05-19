@@ -250,13 +250,22 @@ li {
 .page_tree a {
   padding: 10px 15px;
   display: block;
+  font-weight: bold;
 }
-/* line 135, ../sass/style.scss */
+/* line 136, ../sass/style.scss */
 .page_tree a:hover {
+  background: white;
+}
+/* line 141, ../sass/style.scss */
+.page_tree li {
   background: #ddd;
 }
+/* line 143, ../sass/style.scss */
+.page_tree li:nth-child(2n-1) {
+  background: #eee;
+}
 
-/* line 141, ../sass/style.scss */
+/* line 148, ../sass/style.scss */
 .doc {
   line-height: 1.5em;
 }
@@ -381,7 +390,7 @@ li {
   list-style: decimal;
 }
 
-/* line 148, ../sass/style.scss */
+/* line 155, ../sass/style.scss */
 .crumbs {
   background: #aaa;
   margin: 0 auto;
@@ -394,71 +403,71 @@ li {
   text-transform: lowercase;
   overflow: hidden;
 }
-/* line 157, ../sass/style.scss */
+/* line 164, ../sass/style.scss */
 .crumbs li {
   float: left;
 }
-/* line 160, ../sass/style.scss */
+/* line 167, ../sass/style.scss */
 .crumbs li a {
   padding: 10px 15px;
   display: block;
 }
-/* line 165, ../sass/style.scss */
+/* line 172, ../sass/style.scss */
 .crumbs li a:hover {
   background: #bbb;
 }
 
-/* line 172, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 .str {
   color: #EC7600;
 }
 
-/* line 175, ../sass/style.scss */
+/* line 182, ../sass/style.scss */
 .kwd {
   color: #93C763;
 }
 
-/* line 178, ../sass/style.scss */
+/* line 185, ../sass/style.scss */
 .com {
   color: #66747B;
 }
 
-/* line 181, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
 .typ {
   color: #678CB1;
 }
 
-/* line 184, ../sass/style.scss */
+/* line 191, ../sass/style.scss */
 .lit {
   color: #FACD22;
 }
 
-/* line 187, ../sass/style.scss */
+/* line 194, ../sass/style.scss */
 .pun {
   color: #F1F2F3;
 }
 
-/* line 190, ../sass/style.scss */
+/* line 197, ../sass/style.scss */
 .pln {
   color: #F1F2F3;
 }
 
-/* line 193, ../sass/style.scss */
+/* line 200, ../sass/style.scss */
 .tag {
   color: #8AC763;
 }
 
-/* line 196, ../sass/style.scss */
+/* line 203, ../sass/style.scss */
 .atn {
   color: #E0E2E4;
 }
 
-/* line 199, ../sass/style.scss */
+/* line 206, ../sass/style.scss */
 .atv {
   color: #EC7600;
 }
 
-/* line 202, ../sass/style.scss */
+/* line 209, ../sass/style.scss */
 .dec {
   color: purple;
 }
