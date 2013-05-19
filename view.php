@@ -23,14 +23,17 @@
                 <?php if ($download): ?>
                 <li>
                     <a href="<?php echo url($route); ?>download.php" class="button">
-                        <span class="icon">&#xF15B;</span>
-                        Download
+                        <span class="icon">&#xF0BD;</span>
+                        <span class="text">Download</span>
                     </a>
                 </li>
                 <?php endif; ?>
 
                 <li>
-                    <a href="http://github.com/Scaffold/Scaffold" target="_new" class="button">GitHub</a>
+                    <a href="http://github.com/Scaffold/Scaffold" target="_new" class="button">
+                        <span class="icon-github">&#xF093;</span>
+                        <span class="text">GitHub</span>
+                    </a>
                 </li>
             </ul>
         </div>
