@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <header>
+    <header class="menu">
         <div class="wrap">
             <a href="<?php echo build_url(url($route) . 'home'); ?>"><h1 class="logo">Scaffold</h1></a>
 
@@ -35,11 +35,18 @@
                         <span class="text">GitHub</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="#" class="full_screen button">
+                        <span class="icon open">&#xF0A4;</span>
+                        <span class="icon close">&#xF0A6;</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </header>
 
-    <nav>
+    <nav class="menu">
         <div class="wrap">
             <?php echo build(url($route), $tree, array_keys($crumbs), true, function($ul) {
                 return '<div class="arrow"></div><ul>' . $ul . '</ul>';

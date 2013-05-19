@@ -15,5 +15,28 @@ $(function() {
     $me.addClass('prettyprint');
   });
 
+  $('.doc a').filter(function() {
+    return $(this).attr('href').substr(0, 'http'.length) === 'http';
+  }).attr('target', '_new');
+
+  var $body = $('body');
+
+  if (typeof localStorage.full === 'undefined') {
+    localStorage.full = 'false';
+  }
+
+  $('.full_screen').click(function(e) {
+    e.preventDefault();
+
+    $body.toggleClass('full-screen');
+
+    localStorage.full = $body.hasClass('full-screen') && 'true' || 'false';
+  });
+
+
+  if (localStorage.full === 'true') {
+    $body.addClass('full-screen');
+  }
+
   prettyPrint.call(document.body);
 });

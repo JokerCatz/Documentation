@@ -23,9 +23,24 @@ p { padding: (5 / 16) + em 15px; }
 strong, b { font-weight: bold; }
 em, i { font-style: italic; }
 
-pre, code { width: 100%; display: block; }
+> pre {
+    &, code {
+        width: 100%;
+        display: block;
+    }
+}
 
-code {
+p, ul, ol, blockquote {
+    code {
+        display: inline;
+        background: #333;
+        color: white;
+        padding: 3px;
+        @include border-radius(3px);
+    }
+}
+
+> pre code {
     background: #333;
     color: white;
     font-weight: bold;
@@ -77,3 +92,10 @@ ul, ol {
 
 ul li { list-style: square; }
 ol li { list-style: decimal; }
+
+img {
+    max-width: 300px;
+    width: 100%;
+    float: right;
+    margin: 0 0 10px 10px;
+}
