@@ -3,6 +3,8 @@
 defined('DS') or define('DS', DIRECTORY_SEPARATOR);
 defined('ROOT') or define('ROOT', dirname(__FILE__) . DS);
 
+date_default_timezone_set('Europe/London');
+
 /**
  * Recursive glob
  */
