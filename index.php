@@ -1,11 +1,8 @@
 <?php
-
-define('DS', DIRECTORY_SEPARATOR);
-defined('ROOT') or define('ROOT', dirname(__FILE__) . DS);
-define('URL', getenv('url'));
-
+// define('URL', getenv('url'));
+// 
 require_once 'functions.php';
-require_once 'markdown/markdown_extended.php';
+require_once 'lib/markdown_extended.php';
 
 $files = array_map(function($file) {
     return substr($file, strlen('docs/'));
@@ -57,9 +54,14 @@ foreach ($files as $file) {
 }
 
 unset($branch);
-
 $route = '/' . ltrim(empty($_GET['file']) ? 'home' : $_GET['file'], '/');
+
+if (strpos($route, '.')) {
+    $route = implode('.', array_slice(explode('.', $route), 0, -1));
+}
+
 $error = false;
+$download = !isset($_GET['disable_download']);
 
 if (isset($routes[$route])) {
 
@@ -81,8 +83,9 @@ if (isset($routes[$route])) {
     $error = true;
 }
 
+
 $crumbs = array_map(function($part) {
     return ucwords($part);
 }, explode('/', ltrim($route, '/')));
 
-require_once 'view.php';
+require 'view.php';

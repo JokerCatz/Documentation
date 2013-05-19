@@ -1,4 +1,8 @@
 <?php
+
+defined('DS') or define('DS', DIRECTORY_SEPARATOR);
+defined('ROOT') or define('ROOT', dirname(__FILE__) . DS);
+
 /**
  * Recursive glob
  */
@@ -101,10 +105,9 @@ function is_hash($arr) {
     return false;
 }
 
-function build($arr, $crumbs = false, $deep = false, $nest = null, $level = 0, $error = false) {
+function build($url, $arr, $crumbs = false, $deep = false, $nest = null, $level = 0, $error = false) {
 
     $out = '';
-
 
     foreach ($arr as $title => $route) {
         $out .= '<li';
@@ -124,10 +127,10 @@ function build($arr, $crumbs = false, $deep = false, $nest = null, $level = 0, $
 
         $route = ltrim($route, '/');
 
-        $out .= '<a href="' . URL . $route . '">' . $title . '</a>';
+        $out .= '<a href="' . $url . build_url($route) . '">' . $title . '</a>';
 
         if ($deep && $pages) {
-            $nested = build($pages, $crumbs, $deep, $nest, $level + 1);
+            $nested = build($url, $pages, $crumbs, $deep, $nest, $level + 1);
 
             if (is_callable($nest)) $nested = call_user_func($nest, $nested);
 
@@ -140,3 +143,21 @@ function build($arr, $crumbs = false, $deep = false, $nest = null, $level = 0, $
     return $out;
 }
 
+
+function url($route) {
+
+    $rel = '';
+    $parts = array_slice(explode('/', trim($route, '/')), 1);
+
+    foreach ($parts as $part) {
+        $rel .= '../';
+    }
+
+    return $rel;
+}
+
+function build_url($url) {
+    if (isset($_GET['disable_download'])) $url .= '.html';
+
+    return $url;
+}
