@@ -85,6 +85,7 @@ if (isset($routes[$route])) {
         $body = MarkdownExtended(file_get_contents('docs/' . $routes[$route]));
     }
 } else {
+    if ($download) header('HTTP/1.1 404 Not Found');
     $error = true;
 }
 
