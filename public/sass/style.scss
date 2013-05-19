@@ -23,8 +23,8 @@ header {
     background: $blue;
     line-height: 50px;
     color: white;
-
-        text-transform: lowercase;
+    text-transform: lowercase;
+    overflow: hidden;
 
     h1 {
         display: inline;
