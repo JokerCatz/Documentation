@@ -5,6 +5,10 @@
     <title>Documentation</title>
 
     <link rel="stylesheet" href="<?php echo URL; ?>css/style.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="<?php echo URL; ?>js/pretty.js"></script>
+    <script src="<?php echo URL; ?>js/script.js"></script>
 </head>
 <body>
 

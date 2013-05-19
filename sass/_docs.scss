@@ -1,0 +1,39 @@
+.heading {
+    font-weight: bold;
+    margin-bottom: .3em;
+    padding: 0 15px;
+    margin-top: 10px;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        @extend .heading;
+
+        font-size: (24 - (($i - 1) * 2)) / 16 + em;
+    }
+}
+
+p { padding: (5 / 16) + em 15px; }
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+
+pre, code { width: 100%; display: block; }
+
+code {
+    background: #333;
+    color: white;
+    font-weight: bold;
+    font-family: adelle, monospoce;
+    line-height: 1.5em;
+
+    margin: 10px 0;
+
+    $fontSize: 16;
+    @include background(linear-gradient(lighten(#333, 5) 50%, #333 50%, #333));
+    @include background-size(#{50 / $fontSize}em #{50 / $fontSize}em);
+    display: block;
+    border: none;
+    padding: #{25 / $fontSize}em 15px;
+    line-height: #{25 / $fontSize}em;
+    overflow: auto;
+}

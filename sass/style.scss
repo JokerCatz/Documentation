@@ -125,10 +125,8 @@ li { list-style: none; }
 
 .body {
     background: white;
-    margin-top: 10px;
+    margin: 20px 0;
     border: 1px solid #ddd;
-
-    .doc { padding: 10px; }
 }
 
 .page_tree {
@@ -141,3 +139,43 @@ li { list-style: none; }
         }
     }
 }
+
+.doc {
+
+    line-height: 1.5em;
+
+    @import "_docs";
+}
+
+.str {
+  color: #EC7600; }
+
+.kwd {
+  color: #93C763; }
+
+.com {
+  color: #66747B; }
+
+.typ {
+  color: #678CB1; }
+
+.lit {
+  color: #FACD22; }
+
+.pun {
+  color: #F1F2F3; }
+
+.pln {
+  color: #F1F2F3; }
+
+.tag {
+  color: #8AC763; }
+
+.atn {
+  color: #E0E2E4; }
+
+.atv {
+  color: #EC7600; }
+
+.dec {
+  color: purple; }
