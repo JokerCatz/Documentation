@@ -1,0 +1,143 @@
+@import "compass/css3";
+@import "compass/reset";
+@import "_fonts";
+
+* {
+    @include box-sizing(border-box);
+}
+
+body {
+    color: #222;
+    background: #fafafa;
+    font-family: "Proxima Nova";
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+$blue: rgba(0, 149, 255, 1);
+
+header {
+    height: 50px;
+    background: $blue;
+    line-height: 50px;
+    color: white;
+
+        text-transform: lowercase;
+
+    h1 {
+        display: inline;
+        font-size: 35px;
+        float: left;
+    }
+
+    .buttons {
+        float: right;
+    }
+}
+
+.button {
+    background: darken($blue, 5);
+    display: inline;
+    padding: 10px 15px;
+    @include border-radius(5px);
+
+    &:hover {
+        background: lighten($blue, 5);
+    }
+}
+
+.logo {
+    background: url(../img/logo.png) no-repeat center center;
+    @include background-size(contain);
+    color: transparent;
+}
+
+nav {
+    height: 50px;
+    background: #777;
+    line-height: 50px;
+    font-size: 1.1em;
+
+    li {
+        float: left;
+        color: white;
+        text-shadow: 0 2px 5px rgba(black, .1);
+        text-transform: lowercase;
+        position: relative;
+
+        &:hover > a {
+            background: #888;
+        }
+
+        &:hover > ul { display: block; }
+
+        a {
+            height: 50px;
+            padding: 0 10px;
+            display: block;
+
+            &:hover {
+                background: #999;
+            }
+        }
+
+        &.current {
+            background: #888;
+        }
+
+        &:hover {
+            background: #999;
+        }
+
+        > ul {
+            background: #777;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 100%;
+            display: none;
+
+            ul { display: none; top: 0; left: 100%; }
+
+            > li {
+                float: none;
+            }
+        }
+    }
+}
+
+li { list-style: none; }
+
+.wrap {
+    max-width: 900px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+.clear {
+    height: 0;
+    width: 100%;
+    clear: both;
+}
+
+.body {
+    background: white;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+
+    .doc { padding: 10px; }
+}
+
+.page_tree {
+    a {
+        padding: 10px 15px;
+        display: block;
+
+        &:hover {
+            background: #ddd;
+        }
+    }
+}

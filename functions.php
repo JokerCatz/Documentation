@@ -100,3 +100,43 @@ function is_hash($arr) {
 
     return false;
 }
+
+function build($arr, $crumbs = false, $deep = false, $nest = null, $level = 0, $error = false) {
+
+    $out = '';
+
+
+    foreach ($arr as $title => $route) {
+        $out .= '<li';
+
+        if (!$error && $crumbs && isset($crumbs[$level]) && $title === $crumbs[$level]) {
+            $out .= ' class="current"';
+        }
+
+        $out .= '>';
+
+        $pages = null;
+
+        if (is_array($route)) {
+            $pages = $route[1];
+            $route = $route[0];
+        }
+
+        $route = ltrim($route, '/');
+
+        $out .= '<a href="' . URL . $route . '">' . $title . '</a>';
+
+        if ($deep && $pages) {
+            $nested = build($pages, $crumbs, $deep, $nest, $level + 1);
+
+            if (is_callable($nest)) $nested = call_user_func($nest, $nested);
+
+            $out .= $nested;
+        }
+
+        $out .= '</li>';
+    }
+
+    return $out;
+}
+

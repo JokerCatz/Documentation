@@ -3,43 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Documentation</title>
+
+    <link rel="stylesheet" href="<?php echo URL; ?>css/style.css">
 </head>
 <body>
 
-    <?php
+    <header>
+        <div class="wrap">
+            <a href="<?php echo URL; ?>"><h1 class="logo">Scaffold</h1></a>
 
-        function build($arr) {
+            <ul class="buttons">
+                <li>
+                    <a href="#" class="button">Download</a>
+                </li>
+            </ul>
+        </div>
+    </header>
 
-            $out = '<ul>';
+    <nav>
+        <div class="wrap">
+            <?php echo build($tree, $crumbs, true, function($ul) {
+                return '<ul>' . $ul . '</ul>';
+            }, $error); ?>
+            <div class="clear"></div>
+        </div>
+    </nav>
 
-            foreach ($arr as $title => $pages) {
-                $out .= '<li>';
+    <div class="wrap">
+        <div class="body">
+            <?php
 
-                $url = URL . (is_string($pages[1]) ? $pages[1] : $pages[0]);
-
-                $out .= '<a href="' . $url . '">' . $title . '</a>';
-
-                if (is_array($pages[1])) $out .= build($pages[1]);
-
-                $out .= '</li/>';
+            if ($error) $body = '<h1>Uh, oh</h1><p>Sorry, the documentation you were looking for could not be found.</p>';
+            
+            if (isset($page_tree)) {
+                echo '<ul class="page_tree">' . build($page_tree) . '</ul>';
+            } else {
+                echo '<div class="doc">' . $body . '</div>';
             }
-
-            $out .= '</ul>';
-
-            return $out;
-        }
-
-        echo build($tree);
-    ?>
-
-    <div class="body">
-    <?php if ($error): ?>
-            Sorry, the documentation you were looking for cannot be found.
-    <?php elseif (!$page): ?>
-        <?php echo build(current($branch)[1]); ?>
-    <?php else: ?>
-        <?php echo file_get_contents('docs/' . $branch[0]); ?>
-    <?php endif; ?>
+            ?>
+        </div>
     </div>
 </body>
 </html>
