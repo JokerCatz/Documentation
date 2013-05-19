@@ -110,20 +110,25 @@ function build($url, $arr, $crumbs = false, $deep = false, $nest = null, $level 
     $out = '';
 
     foreach ($arr as $title => $route) {
-        $out .= '<li';
+        $out .= '<li class="';
 
         if (!$error && $crumbs && isset($crumbs[$level]) && $title === $crumbs[$level]) {
-            $out .= ' class="current"';
+            $out .= ' current';
         }
 
-        $out .= '>';
-
+        
         $pages = null;
 
         if (is_array($route)) {
             $pages = $route[1];
             $route = $route[0];
         }
+
+        if ($deep && $pages) {
+            $out .= ' nested';
+        }
+
+        $out .= '">';
 
         $route = ltrim($route, '/');
 

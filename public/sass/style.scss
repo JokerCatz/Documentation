@@ -67,6 +67,24 @@ nav {
         text-transform: lowercase;
         position: relative;
 
+        &.nested > a {
+            padding-right: 20px;
+        }
+
+        > .arrow {
+            position: absolute;
+            top: 50%;
+            right: 6px;
+            width: 0;
+            height: 0;
+            border: 4px solid transparent;
+            border: {
+                bottom: none;
+                top-color: white;
+            }
+            margin-top: -2px;
+        }
+
         &:hover > a {
             background: #888;
         }
@@ -103,6 +121,15 @@ nav {
 
             > li {
                 float: none;
+
+                .arrow {
+                    border: {
+                        color: transparent;
+                        style: solid;
+                        right: none;
+                        left-color: white;
+                    }
+                }
             }
         }
     }
