@@ -39,13 +39,13 @@
 
         <div class="body">
             <ul class="crumbs">
-            <?php foreach ($crumbs as $title => $path): ?>
-                <li>
-                    <a href="<?php echo build_url(url($route) . $path); ?>"><?php echo $title; ?></a>
-                </li>
-            <?php endforeach; ?>
+                <?php foreach ($crumbs as $title => $path): ?>
+                    <li>
+                        <a href="<?php echo build_url(url($route) . $path); ?>"><?php echo $title; ?></a>
+                    </li>
+                <?php endforeach; ?>
+                <div class="clear"></div>
             </ul>
-            <div class="clear"></div>
         </div>
 
         <div class="body">

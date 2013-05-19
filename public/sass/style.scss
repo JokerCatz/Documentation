@@ -8,7 +8,7 @@
 
 body {
     color: #222;
-    background: #fafafa;
+    background: white;
     font-family: "Proxima Nova";
 }
 
@@ -126,7 +126,6 @@ li { list-style: none; }
 .body {
     background: white;
     margin: 20px 0;
-    border: 1px solid #ddd;
 }
 
 .page_tree {
@@ -148,15 +147,24 @@ li { list-style: none; }
 }
 
 .crumbs {
+
+    background: #aaa;
+    margin: 0 auto;
+    @include border-radius(3px);
+    color: white;
+    text-transform: lowercase;
+    overflow: hidden;
+
     li {
         float: left;
 
         a {
+
             padding: 10px 15px;
             display: block;
 
             &:hover {
-                background: #ddd;
+                background: #bbb;
             }
         }
     }
