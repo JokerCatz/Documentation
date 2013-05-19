@@ -22,7 +22,10 @@
             <ul class="buttons">
                 <?php if ($download): ?>
                 <li>
-                    <a href="<?php echo url($route); ?>download.php" class="button">Download</a>
+                    <a href="<?php echo url($route); ?>download.php" class="button">
+                        <span class="icon">&#xF15B;</span>
+                        Download
+                    </a>
                 </li>
                 <?php endif; ?>
 
