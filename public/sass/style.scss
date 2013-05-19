@@ -33,6 +33,10 @@ a {
         opacity: 0;
     }
 
+    50% {
+        opacity: 0;
+    }
+
     100% {
         opacity: 1;
     }
@@ -54,7 +58,7 @@ body.full-screen {
         height: 43px;
         line-height: 23px;
         background: rgba(black, .5);
-        @include animation(fadeIn .5s ease);
+        @include animation(fadeIn 1s ease);
 
         .open { display: none; }
         .close { display: inline; }
@@ -308,5 +312,9 @@ li { list-style: none; }
 
     header .logo {
         font-size: 30px;
+    }
+
+    .wrap {
+        padding: 0 20px;
     }
 }
