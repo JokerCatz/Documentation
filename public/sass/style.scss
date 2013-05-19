@@ -147,6 +147,21 @@ li { list-style: none; }
     @import "_docs";
 }
 
+.crumbs {
+    li {
+        float: left;
+
+        a {
+            padding: 10px 15px;
+            display: block;
+
+            &:hover {
+                background: #ddd;
+            }
+        }
+    }
+}
+
 .str {
   color: #EC7600; }
 
