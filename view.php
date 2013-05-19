@@ -74,14 +74,29 @@
             <?php
 
             if ($error) $body = '<h1>Uh, oh</h1><p>Sorry, the documentation you were looking for could not be found.</p>';
-            
-            if (isset($page_tree)) {
-                echo '<div class="doc"><h1>Contents</h1></div><ul class="page_tree">' . build(url($route), $page_tree) . '</ul>';
-            } else {
-                echo '<div class="doc">' . $body . '</div>';
+            else {
+
+                if (isset($page_tree)) {
+                    echo '<div class="doc"><h1>Contents</h1></div><ul class="page_tree">' . build(url($route), $page_tree) . '</ul>';
+                } else {
+                    echo '<div class="doc">' . $body . '</div>';
+                }
             }
             ?>
         </div>
     </div>
+
+    <?php if (!$error): ?>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-35201099-2', 'nath.is');
+          ga('send', 'pageview');
+
+        </script>
+    <?php endif; ?>
 </body>
 </html>
