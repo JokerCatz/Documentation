@@ -88,9 +88,14 @@ if (isset($routes[$route])) {
     $error = true;
 }
 
+$path = '';
 
-$crumbs = array_map(function($part) {
-    return ucwords($part);
-}, explode('/', ltrim($route, '/')));
+$crumbs = [];
+$parts = explode('/', trim($route, '/'));
+
+foreach ($parts as $part) {
+    $path .= $part . '/';
+    $crumbs[ucwords($part)] = $path;
+}
 
 require 'view.php';

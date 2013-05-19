@@ -28,7 +28,7 @@
 
     <nav>
         <div class="wrap">
-            <?php echo build(url($route), $tree, $crumbs, true, function($ul) {
+            <?php echo build(url($route), $tree, array_keys($crumbs), true, function($ul) {
                 return '<ul>' . $ul . '</ul>';
             }, $error); ?>
             <div class="clear"></div>
