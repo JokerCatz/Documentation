@@ -1,6 +1,7 @@
 @import "compass/css3";
 @import "compass/reset";
 @import "_fonts";
+@import "_colors";
 
 * {
     @include box-sizing(border-box);
@@ -16,8 +17,6 @@ a {
     text-decoration: none;
     color: inherit;
 }
-
-$blue: rgba(0, 149, 255, 1);
 
 header {
     height: 50px;

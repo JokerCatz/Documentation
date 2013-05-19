@@ -1,8 +1,13 @@
+@import "_colors";
+
 .heading {
     font-weight: bold;
-    margin-bottom: .3em;
     padding: 0 15px;
     margin-top: 10px;
+
+    + p {
+        margin-top: 0;
+    }
 }
 
 @for $i from 1 through 6 {
@@ -10,6 +15,7 @@
         @extend .heading;
 
         font-size: (24 - (($i - 1) * 2)) / 16 + em;
+        margin-bottom: (12.8 - ($i - 1) * 5) / 16 + em;
     }
 }
 
@@ -26,7 +32,7 @@ code {
     font-family: adelle, monospoce;
     line-height: 1.5em;
 
-    margin: 10px 0;
+    margin: 20px 0;
 
     $fontSize: 16;
     @include background(linear-gradient(lighten(#333, 5) 50%, #333 50%, #333));
@@ -37,3 +43,37 @@ code {
     line-height: #{25 / $fontSize}em;
     overflow: auto;
 }
+
+pre + blockquote {
+    margin-top: 30px;
+}
+
+blockquote {
+    background: #ddd;
+    margin: 20px 0;
+    padding: 5px;
+    border-left: 10px solid $blue;
+    font-style: italic;
+    font-family: "adelle", sans-serif;
+}
+
+a {
+    color: $blue;
+    font-weight: bold;
+
+    &:hover {
+        color: darken($blue, 5);
+    }
+}
+
+ul, ol {
+    margin: 10px 15px;
+
+    li {
+        margin: 5px;
+        margin-left: 15px;
+    }
+}
+
+ul li { list-style: square; }
+ol li { list-style: decimal; }
