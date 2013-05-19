@@ -98,4 +98,6 @@ foreach ($parts as $part) {
     $crumbs[ucwords($part)] = $path;
 }
 
+$title = array_last(array_keys($crumbs));
+
 require 'view.php';
