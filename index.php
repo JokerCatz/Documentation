@@ -56,6 +56,11 @@ foreach ($files as $file) {
 unset($branch);
 $route = '/' . ltrim(empty($_GET['file']) ? 'home' : $_GET['file'], '/');
 
+if (substr($route, -1) === '/') {
+    header('Location: ../' . array_last(explode('/', trim($route, '/'))));
+    die;
+}
+
 if (strpos($route, '.')) {
     $route = implode('.', array_slice(explode('.', $route), 0, -1));
 }

@@ -161,3 +161,7 @@ function build_url($url) {
 
     return $url;
 }
+
+function array_last($arr) {
+    return $arr[count($arr) - 1];
+}
