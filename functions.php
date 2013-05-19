@@ -164,6 +164,7 @@ function url($route) {
 }
 
 function build_url($url) {
+    $url = trim($url, '/');
     if (isset($_GET['disable_download'])) $url .= '.html';
 
     return $url;
@@ -171,4 +172,34 @@ function build_url($url) {
 
 function array_last($arr) {
     return $arr[count($arr) - 1];
+}
+
+function title2part($title) {
+    $part = str_replace(' ', '-', $title);
+    $part = strtolower($part);
+
+    return $part;
+}
+
+function part2title($part) {
+    $title = str_replace('-', ' ', $part);
+    $title = ucwords($title);
+
+    return $title;
+}
+
+function parts($file) {
+    $parts = explode('/', trim($file, '/'));
+    $parts = array_map(function($part) {
+        if (!strpos($part, '.')) return $part;
+
+        $parts = explode('.', $part);
+
+        return implode('.', array_slice($parts, 0, -1));
+    }, $parts);
+    $parts = array_filter($parts, function($part) {
+        return $part !== 'index';
+    });
+
+    return $parts;
 }

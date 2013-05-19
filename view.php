@@ -17,7 +17,7 @@
 
     <header class="menu">
         <div class="wrap">
-            <a href="<?php echo build_url(url($route) . 'home'); ?>"><h1 class="logo">Scaffold</h1></a>
+            <a href="<?php echo url($route); ?>"><h1 class="logo">Scaffold</h1></a>
 
             <ul class="buttons">
                 <?php if ($download): ?>

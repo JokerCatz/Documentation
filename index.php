@@ -8,53 +8,49 @@ $files = array_map(function($file) {
     return substr($file, strlen('docs/'));
 }, recursive_glob('docs/*.md'));
 
-// var_dump(recursive_glob('docs/*.md'));
-
 $routes = [];
 $tree = [];
 
 foreach ($files as $file) {
-    $parts = explode('/', $file);
-    $route = '/' . ltrim(implode('/', $parts), '/');
-    $route = implode('.', array_slice(explode('.', $route), 0, -1));
-    $routes[$route] = $file;
+    $parts = parts($file);
 
-    $path = '';
+    $routes['/' . implode('/', $parts)] = $file;
+}
 
-    foreach ($parts as $part) {
-        $path .= '/' . pathinfo($part)['filename'];
-
-        if ($path !== $route) $routes[$path] = ltrim($path, '/');
-    }
+foreach ($routes as $route => $path) {
+    $parts = parts($path);
+    
+    $parts = array_map(function($part) {
+        return ucwords(str_replace('-', ' ', $part));
+    }, $parts);
 
     $branch =& $tree;
 
-    if (count($parts) > 1) {
+    $used = [];
 
-        $path = '';
+    while ($part = array_shift($parts)) {
 
-        while (count($parts) > 1) {
+        $used[] = $part;
 
-            $index = ucwords(pathinfo($part = array_shift($parts))['filename']);
-            $path .= '/' . $part;
+        if (!isset($branch[$part])) {
+            $branch[$part] = '/' . implode('/', array_map('title2part', $used));
+            $branch =& $branch[$part];
 
-            if (!isset($branch[$index])) {
-
-                $branch[$index] = [
-                    $path, []
-                ];
+            if (count($parts)) {
+                $branch = [$branch, []];
+                $branch =& $branch[1];
             }
-            $branch =& $branch[$index][1];
         }
     }
-
-    $part = array_shift($parts);
-
-    $branch[ucwords(pathinfo($part)['filename'])] = array_search($file, $routes);
 }
 
 unset($branch);
-$route = '/' . ltrim(empty($_GET['file']) ? 'home' : $_GET['file'], '/');
+
+$route = '/' . ltrim(empty($_GET['file']) ? '/' : $_GET['file'], '/');
+
+if ($route === '/') {
+    $route = '/introduction';
+}
 
 if (substr($route, -1) === '/') {
     header('Location: ../' . array_last(explode('/', trim($route, '/'))));
@@ -66,13 +62,16 @@ if (strpos($route, '.')) {
 }
 
 $error = false;
+
 $download = !isset($_GET['disable_download']);
 
 if (isset($routes[$route])) {
 
-    if (is_dir('docs/' . $routes[$route])) {
+    $file = $routes[$route];
 
-        $parts = explode('/', $routes[$route]);
+    if (is_dir('docs/' . $file)) {
+
+        $parts = explode('/', $file);
 
         $page_tree = $tree;
         $page_branch =& $page_tree;
@@ -82,7 +81,7 @@ if (isset($routes[$route])) {
         }
 
     } else {
-        $body = MarkdownExtended(file_get_contents('docs/' . $routes[$route]));
+        $body = MarkdownExtended(file_get_contents('docs/' . $file));
     }
 } else {
     if ($download) header('HTTP/1.1 404 Not Found');
@@ -92,10 +91,10 @@ if (isset($routes[$route])) {
 $path = '';
 
 $crumbs = [];
-$parts = explode('/', trim($route, '/'));
+$parts = array_map('part2title', explode('/', trim($route, '/')));
 
 foreach ($parts as $part) {
-    $path .= $part . '/';
+    $path .= title2part($part) . '/';
     $crumbs[ucwords($part)] = $path;
 }
 

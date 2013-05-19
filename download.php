@@ -12,7 +12,7 @@ class Scanner {
         $this->doc = new DOMDocument;
     }
 
-    public function scan($link = '/home') {
+    public function scan($link = '/') {
         $contents = $this->get_contents($link);
         $this->links[ltrim($link, '/')] = $contents;
         $links = [];
@@ -54,7 +54,7 @@ class Scanner {
         return $this;
     }
 
-    public function get_contents($url = '/home') {
+    public function get_contents($url = '/') {
 
         ob_start();
         $_GET['file'] = $url;
