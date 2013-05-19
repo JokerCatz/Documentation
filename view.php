@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0; user-scalable=no">
-    
+
     <title>Documentation</title>
 
     <link rel="stylesheet" href="<?php echo url($route); ?>public/css/style.css">
+    <link rel="shortcut icon" href="<?php echo url($route); ?>public/img/favicon.png">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="<?php echo url($route); ?>public/js/pretty.js"></script>
