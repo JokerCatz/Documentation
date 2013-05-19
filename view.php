@@ -25,6 +25,10 @@
                     <a href="<?php echo url($route); ?>download.php" class="button">Download</a>
                 </li>
                 <?php endif; ?>
+
+                <li>
+                    <a href="http://github.com/Scaffold/Scaffold" target="_new" class="button">GitHub</a>
+                </li>
             </ul>
         </div>
     </header>

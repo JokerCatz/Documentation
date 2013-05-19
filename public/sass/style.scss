@@ -34,6 +34,11 @@ header {
 
     .buttons {
         float: right;
+
+        li {
+            float: left;
+            margin-left: 10px;
+        }
     }
 }
 
