@@ -297,12 +297,16 @@ li { list-style: none; }
     }   
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .button {
         .icon, .icon-github {
             + .text {
                 display: none;
             }
         }
+    }
+
+    header .logo {
+        font-size: 30px;
     }
 }
