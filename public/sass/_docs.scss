@@ -39,22 +39,21 @@ code {
 }
 
 > pre code {
-    background: #333;
+    background: #222;
     color: white;
     font-weight: bold;
-    font-family: adelle, monospoce;
-    line-height: 1.5em;
+    font-family: monospace;
 
     margin: 20px 0;
-
-    $fontSize: 16;
-    @include background(linear-gradient(lighten(#333, 5) 50%, #333 50%, #333));
-    @include background-size(#{50 / $fontSize}em #{50 / $fontSize}em);
+    @include background(linear-gradient(lighten(#222, 5) 50%, #222 50%, #222));
+    @include background-size(50px 50px);
     display: block;
     border: none;
-    padding: #{25 / $fontSize}em 15px;
-    line-height: #{25 / $fontSize}em;
+    line-height: 25px;
     overflow: auto;
+    text-shadow: rgb(0, 0, 0) 0px 1px 0px;
+    font-size: 16px;
+    padding: 25px 15px;
 }
 
 pre + blockquote {
