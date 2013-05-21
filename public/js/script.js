@@ -1,6 +1,6 @@
 $(function() {
 
-  $('code').each(function() {
+  $('pre code').each(function() {
     var classes = this.classList;
     var $me = $(this);
 
