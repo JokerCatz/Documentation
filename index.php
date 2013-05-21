@@ -59,7 +59,7 @@ foreach ($routes as $route => $path) {
     unset($branch);
 }
 
-$route = '/' . ltrim(empty($_GET['file']) ? '/' : $_GET['file'], '/');
+$route = '/' . ltrim(empty($_GET['file']) ? '/' : trim($_GET['file']), '/');
 
 if ($route === '/') {
     $route = '/introduction';
