@@ -61,7 +61,7 @@ We recognise that these rules aren't the most flexible, so if you need to use cl
 DatabaseQueryBuilderSQLite;
 // database/query/builder/sql/ite.php
 
-Autoload::load('DatabaseQueryBuilderSQLite', 'database/query/builder/sqlite.php');
+Autoload::register('DatabaseQueryBuilderSQLite', 'database/query/builder/sqlite.php');
 
 DatabaseQueryBuilderSQLite;
 // database/query/builder/sqlite.php
