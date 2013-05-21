@@ -4,7 +4,7 @@ Scaffold is highly configurable, and comes with a built-in `Config` class for yo
 
 Configuration in Scaffold is based on the `SCAFFOLD_ENV` environment variable that you should set in your server configuration. Setting this in your application boostrap is **not** currently supported.
 
-To configure Scaffold, create a folder at `application/config` and create files for each system you want to configure. 
+To configure Scaffold, create a folder at `/application/config` and create files for each system you want to configure. 
 
 ## Class Usage
 
@@ -26,7 +26,7 @@ Service::get('config')->get('database.host');
 
 ## Default Configuration
 
-Configuration files for the Scaffold system are located at `system/config` and currently include the following systems.
+Configuration files for the Scaffold system are located at `/system/config` and currently include the following systems.
 
  - `database`
  - `errors`
