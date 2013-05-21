@@ -1,0 +1,23 @@
+@import "_mixins";
+
+.icon {
+    font-family: Batch;
+}
+
+.icon-github {
+    font-family: github;
+}
+
+.button {
+    .icon, .icon-github {
+        font-size: .8em;
+
+        + .text {
+            margin-left: 5px;
+
+            @include mobile {
+                display: none;
+            }
+        }
+    }   
+}

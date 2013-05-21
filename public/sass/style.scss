@@ -1,8 +1,11 @@
 @import "compass/css3";
 @import "animation";
+@import "_mixins";
+@import "_colors";
 @import "compass/reset";
 @import "_fonts";
-@import "_colors";
+@import "_highlight";
+@import "_icons";
 
 * {
     @include box-sizing(border-box);
@@ -74,6 +77,10 @@ header {
         display: inline;
         font-size: 35px;
         float: left;
+
+        @include mobile {
+            font-size: 30px;
+        }
     }
 
     .buttons {
@@ -191,6 +198,10 @@ li { list-style: none; }
     max-width: 900px;
     padding: 0 30px;
     margin: 0 auto;
+
+    @include mobile {
+        padding: 0 20px;
+    }
 }
 
 .clear {
@@ -249,74 +260,5 @@ li { list-style: none; }
                 background: #bbb;
             }
         }
-    }
-}
-
-.str {
-  color: #EC7600; }
-
-.kwd {
-  color: #93C763; }
-
-.com {
-  color: #66747B; }
-
-.typ {
-  color: #678CB1; }
-
-.lit {
-  color: #FACD22; }
-
-.pun {
-  color: #F1F2F3; }
-
-.pln {
-  color: #F1F2F3; }
-
-.tag {
-  color: #8AC763; }
-
-.atn {
-  color: #E0E2E4; }
-
-.atv {
-  color: #EC7600; }
-
-.dec {
-  color: purple; }
-
-.icon {
-    font-family: Batch;
-}
-
-.icon-github {
-    font-family: github;
-}
-
-.button {
-    .icon, .icon-github {
-        font-size: .8em;
-
-        + .text {
-            margin-left: 5px;
-        }
-    }   
-}
-
-@media screen and (max-width: 600px) {
-    .button {
-        .icon, .icon-github {
-            + .text {
-                display: none;
-            }
-        }
-    }
-
-    header .logo {
-        font-size: 30px;
-    }
-
-    .wrap {
-        padding: 0 20px;
     }
 }
