@@ -33,18 +33,31 @@ foreach ($routes as $route => $path) {
         $used[] = $part;
 
         if (!isset($branch[$part])) {
+
+            if (is_string($branch)) {
+                $branch = [$branch, []];
+                $branch =& $branch[1];
+            }
+
             $branch[$part] = '/' . implode('/', array_map('title2part', $used));
+
             $branch =& $branch[$part];
 
             if (count($parts)) {
                 $branch = [$branch, []];
                 $branch =& $branch[1];
             }
+        } else {
+            $branch =& $branch[$part];
+
+            if (isset($branch[1]) && is_array($branch[1])) {
+                $branch =& $branch[1];
+            }
         }
     }
-}
 
-unset($branch);
+    unset($branch);
+}
 
 $route = '/' . ltrim(empty($_GET['file']) ? '/' : $_GET['file'], '/');
 
@@ -62,8 +75,8 @@ if (strpos($route, '.')) {
 }
 
 $error = false;
-
 $download = !isset($_GET['disable_download']);
+
 
 if (isset($routes[$route])) {
 
@@ -83,6 +96,7 @@ if (isset($routes[$route])) {
     } else {
         $body = MarkdownExtended(file_get_contents('docs/' . $file));
     }
+
 } else {
     if ($download) header('HTTP/1.1 404 Not Found');
     $error = true;
