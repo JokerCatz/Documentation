@@ -26,7 +26,7 @@ Service::get('config')->get('database.host');
 
 ## Default Configuration
 
-Configuration files for the Scaffold system are located at `system/config` and currently include the following system.
+Configuration files for the Scaffold system are located at `system/config` and currently include the following systems.
 
  - `database`
  - `errors`
