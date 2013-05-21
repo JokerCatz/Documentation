@@ -7,7 +7,13 @@
     <title><?php echo $title; ?> - Scaffold Documentation</title>
 
     <link rel="stylesheet" href="<?php echo url($route); ?>public/css/style.css">
-    <link rel="shortcut icon" href="data:image/png;base64,<?php echo base64_encode(file_get_contents('public/img/favicon.png')); ?>">
+    <link rel="shortcut icon" href="<?php
+    $path = 'public/img/favicon.png';
+    if (!$download) 
+        echo 'data:image/png;base64,' . base64_encode(file_get_contents($path));
+    else
+        echo url($route) . $path;
+    ?>">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="<?php echo url($route); ?>public/js/pretty.js"></script>
