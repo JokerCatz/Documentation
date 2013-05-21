@@ -150,11 +150,6 @@ nav {
         &.current {
             background: #888;
         }
-
-        &:hover {
-            background: #999;
-        }
-
         > ul {
             background: #777;
             position: absolute;
@@ -163,9 +158,16 @@ nav {
             min-width: 100%;
             display: none;
 
-            ul { display: none; top: 0; left: 100%; }
+            &, li:last-child a {
+                @include border-radius(0 0 3px 3px);
+            }
 
-            > li {
+            ul {
+                top: 0;
+                left: 100%;
+            }
+
+            li {
 
                 white-space: nowrap;
                 float: none;
