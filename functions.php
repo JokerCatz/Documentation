@@ -203,3 +203,27 @@ function parts($file) {
 
     return $parts;
 }
+
+function order($tree, $order) {
+
+    foreach ($tree as $key => $val) {
+        if (is_array($val)) {
+            foreach ($order as $part) {
+                if (is_array($part) && $part[0] === $key) {
+                    $tree[$key][1] = order($tree[$key][1], $part[1]);
+                }
+            }
+        }
+    }
+
+    $order = array_map(function($item) {
+        return is_array($item) ? $item[0] : $item;
+    }, $order);
+
+    uksort($tree, function($a, $b) use ($order) {
+        return array_search($a, $order) > array_search($b, $order);
+    });
+
+    return $tree;
+}
+

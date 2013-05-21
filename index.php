@@ -59,6 +59,9 @@ foreach ($routes as $route => $path) {
     unset($branch);
 }
 
+$order = json_decode(file_get_contents('docs/order.json'), true);
+$tree = order($tree, $order);
+
 $route = '/' . ltrim(empty($_GET['file']) ? '/' : trim($_GET['file']), '/');
 
 if ($route === '/') {
