@@ -30,14 +30,12 @@ em, i { font-style: italic; }
     }
 }
 
-p, ul, ol, blockquote {
-    code {
-        display: inline;
-        background: #333;
-        color: white;
-        padding: 3px;
-        @include border-radius(3px);
-    }
+code {
+    display: inline;
+    background: #333;
+    color: white;
+    padding: 3px 8px;
+    @include border-radius(3px);
 }
 
 > pre code {
