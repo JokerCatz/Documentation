@@ -1,11 +1,11 @@
 @import "compass/css3";
 @import "animation";
-@import "_mixins";
-@import "_colors";
+@import "mixins";
+@import "colors";
 @import "compass/reset";
-@import "_fonts";
-@import "_highlight";
-@import "_icons";
+@import "fonts";
+@import "highlight";
+@import "icons";
 
 * {
     @include box-sizing(border-box);
